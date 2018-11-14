@@ -38,12 +38,6 @@
                      (doc-tree-view cache-id (:children doc-page) current-page)])))
          (into [:ul.list.pl2]))))
 
-(def doc-nav
-  [:div.bb.b--black-10.ml7.ph4-ns.ph2
-   [:div.mw7.center.pv2
-    [:span "Current Section:"]
-    [:a#js--doc-title.link.blue.ml2 {:href "#"} ""]]])
-
 (defn doc-page [{:keys [top-bar-component
                         upgrade-notice-component
                         doc-tree-component
@@ -56,7 +50,6 @@
     upgrade-notice-component
     (article-list doc-tree-component)
     namespace-list-component)
-   (when doc-html doc-nav)
    (layout/main-container
     (cond-> {:offset "16rem"}
       doc-html (assoc :extra-height 34))
