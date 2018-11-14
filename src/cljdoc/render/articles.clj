@@ -31,8 +31,9 @@
          (map (fn [doc-page]
                 (let [slug-path (-> doc-page :attrs :slug-path)]
                     [:li
-                     [:a.link.blue.hover-dark-blue.dib.pa1
-                      {:href  (doc-link cache-id slug-path)
+                     [:a.link.blue.hover-dark-blue.dib.pa1.w-100
+                      {:style {:word-wrap "break-word"}
+                       :href  (doc-link cache-id slug-path)
                        :class (when (= current-page slug-path) "fw7")}
                       (:title doc-page)]
                      (doc-tree-view cache-id (:children doc-page) current-page)])))
